@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> e Noteshub</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body style="background-color: rgb(51, 151, 131);">
+  <div class="container">
+    <header>
+      <h1>  E-NOTES HUB 🎓</h1>
+      <p class="subtitle">Upload, organize, and find your study notes easily</p>
+    </header>
+
+    <form id="noteForm" aria-labelledby="uploadHeading" enctype="multipart/form-data">
+      <h2 id="uploadHeading"><i class="fa-solid fa-upload"></i> Upload Notes</h2>
+      
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select id="department" required aria-required="true">
+          <option value="">Select Department</option>
+          <option value="CSE">Computer Science (CSE)</option>
+          <option value="Electrical">Electrical Engineering</option>
+          <option value="Mechanical">Mechanical Engineering</option>
+          <option value="Civil">Civil Engineering</option>
+          <option value="ECE">Electronics & Communication (ECE)</option>
+          <option value="Chemical">Chemical Engineering</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="e.g., Data Structures" required aria-required="true"/>
+      </div>
+
+      <div class="form-group">
+        <label for="topic">Topic</label>
+        <input type="text" id="topic" placeholder="e.g., Linked Lists" required aria-required="true"/>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Brief description of the notes content" required aria-required="true"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="fileUpload">Upload File</label>
+        <input type="file" id="fileUpload" accept=".pdf,.doc,.docx,.txt,.ppt,.pptx" required aria-required="true"/>
+        <small class="hint">Supported formats: PDF, DOC, DOCX, TXT, PPT, PPTX</small>
+      </div>
+      
+      <button type="submit" id="submitBtn">
+        <i class="fa-solid fa-paper-plane"></i> Submit
+      </button>
+    </form>
+
+    <hr aria-hidden="true" />
+
+    <div class="search-section" aria-labelledby="searchHeading">
+      <h2 id="searchHeading"><i class="fa-solid fa-magnifying-glass"></i> Search Notes</h2>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by department, subject, or topic..." aria-label="Search notes"/>
+      </div>
+    </div>
+
+    <div id="notesList" class="notes-list" aria-live="polite">
+      <!-- Notes will be displayed here -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
